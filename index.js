@@ -1,8 +1,4 @@
 const fetch = require("node-fetch");
-const { pipeline } = require("stream");
-const { promisify } = require("util");
-
-const streamPipeline = promisify(pipeline);
 
 const regex = /StreamTitle=(.*?);/
 
@@ -14,14 +10,13 @@ module.exports = async radio => {
     });
 
     const song = await new Promise(resolve => {
-        streamPipeline(response.body, async source => {
-            source.setEncoding("utf8");
-
-            for await (const chunk of source) {
-                if (regex.test(chunk)) {
-                    const song = chunk.match(regex)[1];
-                    resolve(song.substring(1, song.length - 1));
-                }
+        response.body.on("data", chunk => {
+            chunk = chunk.toString();
+            
+            if (regex.test(chunk)) {
+                response.body.destroy();
+                const song = chunk.match(regex)[1];
+                return resolve(song.substring(1, song.length - 1));
             }
         });
     });
