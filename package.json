@@ -1,0 +1,30 @@
+{
+    "name": "node-livestream-metainfo",
+    "version": "1.0.0",
+    "description": "Lightweight module for fetching basic meta information from livestream",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/PurpleHorrorRus/node-livestream-metainfo.git"
+    },
+    "keywords": [
+        "livestream",
+        "stream",
+        "audio",
+        "m3u8",
+        "radio",
+        "metainfo"
+    ],
+    "author": "Maxim <purplehorrorrus@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/PurpleHorrorRus/node-livestream-metainfo/issues"
+    },
+    "homepage": "https://github.com/PurpleHorrorRus/node-livestream-metainfo#readme",
+    "dependencies": {
+        "node-fetch": "^2.6.1"
+    }
+}
