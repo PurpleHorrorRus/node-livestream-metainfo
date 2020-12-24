@@ -29,6 +29,7 @@ module.exports = async radio => {
     return {
         name: response.headers.get("icy-name"),
         description: response.headers.get("icy-description"),
+        genre: response.headers.get("icy-genre"),
         bitrate: parseInt(response.headers.get("icy-br")),
         audioInfo: response.headers.get("ice-audio-info"),
         song

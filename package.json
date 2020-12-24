@@ -1,6 +1,6 @@
 {
     "name": "node-livestream-metainfo",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Lightweight module for fetching basic meta information from livestreams",
     "main": "index.js",
     "scripts": {
