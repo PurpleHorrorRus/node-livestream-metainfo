@@ -15,8 +15,7 @@ module.exports = async radio => {
             
             if (regex.test(chunk)) {
                 response.body.destroy();
-                const song = chunk.match(regex)[1];
-                return resolve(song.substring(1, song.length - 1));
+                resolve(chunk.match(regex)[1]);
             }
         });
     });
@@ -27,6 +26,6 @@ module.exports = async radio => {
         genre: response.headers.get("icy-genre"),
         bitrate: parseInt(response.headers.get("icy-br")),
         audioInfo: response.headers.get("ice-audio-info"),
-        song
+        song: song.substring(1, song.length - 1)
     };
 };
